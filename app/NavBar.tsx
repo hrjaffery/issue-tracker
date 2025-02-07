@@ -4,18 +4,21 @@ import { IoBugSharp } from "react-icons/io5";
 
 const NavBar = () => {
   const links = [
-    { title: "Dashboard", href: "/dashboard" },
-    { title: "Issues", href: "/issues" },
+    { label: "Dashboard", href: "/dashboard" },
+    { label: "Issues", href: "/issues" },
   ];
   return (
-    <nav className="flex border-b h-10 space-x-4 items-center">
+    <nav className="flex border-b h-14 mb-5 space-x-6 items-center px-5">
       <Link href="/">
         <IoBugSharp />{" "}
       </Link>
-      <ul className="flex space-x-4">
+      <ul className="flex space-x-6">
         {links.map((link) => (
-          <li className="hover:text-zinc-700 transition-colors" key={link.href}>
-            <Link href={link.href}>{link.title}</Link>
+          <li
+            className=" text-zinc-500 hover:text-zinc-800 transition-colors"
+            key={link.href}
+          >
+            <Link href={link.href}>{link.label}</Link>
           </li>
         ))}
       </ul>
