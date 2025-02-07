@@ -12,3 +12,16 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+
+model issue {
+  id Int  @id @default(autoincrement())
+  title      String   @db.VarChar(255)
+  description String @db.text
+  status Status @default(OPEN) 
+}
+
+Enum Status {
+  OPEN,
+  IN_PROGRESS,
+  CLOSED
+}
