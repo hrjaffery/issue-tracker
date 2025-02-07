@@ -14,16 +14,16 @@ datasource db {
 }
 
 model issue {
-  id Int  @id @default(autoincrement())
-  title      String   @db.VarChar(255)
-  description String @db.text
-  status Status @default(OPEN)
-  createdAt Date @db.Date(now())
-  updatedAt Date @db.updatedAt
+  id          Int      @id @default(autoincrement())
+  title       String   @db.VarChar(255)
+  description String   @db.Text
+  status      Status   @default(OPEN)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
 
-Enum Status {
-  OPEN,
-  IN_PROGRESS,
+enum Status {
+  OPEN
+  IN_PROGRESS
   CLOSED
 }
