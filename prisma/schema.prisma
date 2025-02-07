@@ -17,7 +17,9 @@ model issue {
   id Int  @id @default(autoincrement())
   title      String   @db.VarChar(255)
   description String @db.text
-  status Status @default(OPEN) 
+  status Status @default(OPEN)
+  createdAt Date @db.Date(now())
+  updatedAt Date @db.updatedAt
 }
 
 Enum Status {
