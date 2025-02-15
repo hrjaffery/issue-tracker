@@ -1,19 +1,9 @@
 import "@radix-ui/themes/styles.css";
 import type { Metadata } from "next";
-import { Theme, ThemePanel } from "@radix-ui/themes";
-import { Geist, Geist_Mono, Inter } from "next/font/google";
+import { Theme } from "@radix-ui/themes";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import NavBar from "./NavBar";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 const inter = Inter({
   subsets: ["latin"],
