@@ -6,7 +6,7 @@ import "easymde/dist/easymde.min.css";
 import { useForm, Controller } from "react-hook-form";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import Error from "../../components/Error";
+import ErrorMessage from "../../components/ErrorMessage";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { issueSchema } from "@/app/validationSchemas";
@@ -38,7 +38,7 @@ const NewIssuePage = () => {
         placeholder="Title"
         {...register("title")}
       ></TextField.Root>
-      <Error message={errors.title?.message} />
+      <ErrorMessage>{errors.title?.message}</ErrorMessage>
 
       <Controller
         name="description"
@@ -47,7 +47,7 @@ const NewIssuePage = () => {
           <SimpleMDE placeholder="Description" {...field}></SimpleMDE>
         )}
       />
-      <Error message={errors.description?.message} />
+      <ErrorMessage>{errors.description?.message}</ErrorMessage>
       <Button>Submit New Issue</Button>
     </form>
   );
