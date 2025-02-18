@@ -6,7 +6,6 @@ import { IoBugSharp } from "react-icons/io5";
 import classNames from "classnames";
 const NavBar = () => {
   const pathName = usePathname();
-  console.log("🚀 ~ NavBar ~ pathName:", pathName);
 
   const links = [
     { label: "Dashboard", href: "/dashboard" },
