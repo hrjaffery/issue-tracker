@@ -4,6 +4,7 @@ import { Theme } from "@radix-ui/themes";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import NavBar from "./NavBar";
+import QueryClientProvider from "./QueryClientProvider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -24,10 +25,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable}  antialiased`}>
-        <Theme accentColor="violet">
-          <NavBar />
-          <main className="px-5">{children}</main>
-        </Theme>
+        <QueryClientProvider>
+          <Theme accentColor="violet">
+            <NavBar />
+            <main className="px-5">{children}</main>
+          </Theme>
+        </QueryClientProvider>
       </body>
     </html>
   );
