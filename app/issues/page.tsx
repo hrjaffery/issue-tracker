@@ -1,10 +1,11 @@
 "use client";
 
-import { Button, Skeleton, Table } from "@radix-ui/themes";
+import { issue } from "@prisma/client";
+import { Button, Flex, Skeleton, Table } from "@radix-ui/themes";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import Link from "next/link";
-import { issue } from "@prisma/client";
+import StatusBadge from "../components/StatusBadge";
 
 const Issues = () => {
   const {
@@ -34,7 +35,11 @@ const Issues = () => {
             return (
               <Table.Row key={issue.id}>
                 <Table.RowHeaderCell>{issue.title}</Table.RowHeaderCell>
-                <Table.Cell>{issue.status}</Table.Cell>
+                <Table.Cell>
+                  <Flex gap="2">
+                    <StatusBadge status={issue.status} />
+                  </Flex>
+                </Table.Cell>
                 <Table.Cell>
                   {new Date(issue.createdAt).toDateString()}
                 </Table.Cell>
