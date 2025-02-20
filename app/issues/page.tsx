@@ -34,7 +34,9 @@ const Issues = () => {
           {issues.map((issue: issue) => {
             return (
               <Table.Row key={issue.id}>
-                <Table.RowHeaderCell>{issue.title}</Table.RowHeaderCell>
+                <Table.RowHeaderCell>
+                  <Link href={`/issues/${issue.id}`}>{issue.title}</Link>{" "}
+                </Table.RowHeaderCell>
                 <Table.Cell>
                   <Flex gap="2">
                     <StatusBadge status={issue.status} />
